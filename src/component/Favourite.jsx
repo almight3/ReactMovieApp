@@ -44,22 +44,22 @@ function Favourite() {
     console.table(filteredFavourie)
     
     if(rating==1){
-        filteredFavourie = filteredFavourie.sort(function(objA,objB){
+        filteredFavourie = filteredFavourie && filteredFavourie.sort(function(objA,objB){
             return objA.vote_average - objB.vote_average
         })
     }
     else if(rating == -1){
-        filteredFavourie = filteredFavourie.sort(function (objA,objB){
+        filteredFavourie = filteredFavourie && filteredFavourie.sort(function (objA,objB){
             return objB.vote_average - objA.vote_average
         })
     }
     if(popularity==1){
-        filteredFavourie = filteredFavourie.sort(function(objA,objB){
+        filteredFavourie = filteredFavourie && filteredFavourie.sort(function(objA,objB){
             return objA.popularity - objB.popularity
         })
     }
     else if( popularity == -1){
-        filteredFavourie = filteredFavourie.sort(function (objA,objB){
+        filteredFavourie = filteredFavourie && filteredFavourie.sort(function (objA,objB){
             return objB.popularity - objA.popularity
         })
     }
