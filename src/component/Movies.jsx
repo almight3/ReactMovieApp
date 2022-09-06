@@ -53,21 +53,21 @@ function Movies() {
       console.log(removeItem)
     localStorage.setItem('movieapp',JSON.stringify(removeItem) || [])
   }
-  const settings = {
-    dots: true,
-    infinite: true,
-    className: "slider variable-width",
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 500,
-    autoplay: true,
-    autoplaySpeed: 2000,
-  };
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   className: "slider variable-width",
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   speed: 500,
+  //   autoplay: true,
+  //   autoplaySpeed: 2000,
+  // };
   
   return (
     <div>
     <div className="my-5 text-center	text-3xl font-bold text-centre">Trending</div>
-    <div style={{margin:"1rem 0",maxWidth:"100vw",}}>
+    {/* <div style={{margin:"1rem 0",maxWidth:"100vw",}}>
     <Slider {...settings}>
            <div>
            <img style={{height:"65vh", width:"95vw",margin:"auto",objectFit: "fill"}} src="https://image.tmdb.org/t/p/original/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg"  />  
@@ -78,10 +78,10 @@ function Movies() {
            <div>
            <img style={{height:"65vh", width:"95vw",margin:"auto",objectFit: "fill"}} src="https://image.tmdb.org/t/p/original/6cpRpfD3isvluFwXDGSiDVyibPJ.jpg" />
            </div>
-    </Slider>
+    </Slider> */}
           
       
-    </div>
+    {/* </div> */}
     { 
      movies.length == 0 ? <div className='flex justify-center'><TailSpin color ="indigo" height={100} width={100}/></div>:
      <div className="flex flex-wrap justify-center">
