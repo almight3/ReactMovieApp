@@ -2,11 +2,8 @@ import axios from 'axios';
 import React, {useState,useEffect} from 'react'
 import {TailSpin	} from 'react-loader-spinner'
 import Pagination from './Pagination'
-import favouriteIcon from './heart.png'
-import removeIcon from './remove.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 function Movies() {
@@ -15,7 +12,6 @@ function Movies() {
   const [page,setPage] = useState(1);
   const [hover,setHover] = useState();
   const [favourites,setFavourites] = useState([]);
-  const [sliderImage,setSliderImage] = useState([])
   
   useEffect(()=>{
   async function fetchData(){
@@ -48,7 +44,7 @@ function Movies() {
     
   }
   let removeFromFavourite = (movie)=>{
-      let removeItem = favourites.filter((m)=>m.id!=movie.id)
+      let removeItem = favourites.filter((m)=>m.id!==movie.id)
       setFavourites(removeItem)
       console.log(removeItem)
     localStorage.setItem('movieapp',JSON.stringify(removeItem) || [])
@@ -83,7 +79,7 @@ function Movies() {
       
     {/* </div> */}
     { 
-     movies.length == 0 ? <div className='flex justify-center'><TailSpin color ="indigo" height={100} width={100}/></div>:
+     movies.length === 0 ? <div className='flex justify-center'><TailSpin color ="indigo" height={100} width={100}/></div>:
      <div className="flex flex-wrap justify-center">
      {movies.map((movie)=>(
       <div className={`bg-[url(https://image.tmdb.org/t/p/w500/${movie.backdrop_path})]  h-[35vh] w-[350px] bg-center bg-cover m-4 border-purple-600 rounded-xl flex items-end hover:scale-110 ease-in duration-300 delay-50  relative`}
@@ -91,7 +87,7 @@ function Movies() {
       onMouseEnter={()=>setHover(movie.id)}
       
       onMouseLeave = {() =>setHover("")}>
-        {hover==movie.id && <>{ !favourites.find((m)=>m.id==movie.id) ?<div className = "absolute top-2 right-2 p-4" style={{color:"white"}}><FontAwesomeIcon icon={faHeart} onClick={()=>{addToFavourite(movie)}} /></div>:
+        {hover===movie.id && <>{ !favourites.find((m)=>m.id===movie.id) ?<div className = "absolute top-2 right-2 p-4" style={{color:"white"}}><FontAwesomeIcon icon={faHeart} onClick={()=>{addToFavourite(movie)}} /></div>:
         <div className = "absolute top-2 right-2 p-4 " style={{color:"#f87171"}}><FontAwesomeIcon icon={faHeart} onClick={()=>{removeFromFavourite(movie)}} /></div>
         }</>}
 
